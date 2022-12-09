@@ -15,15 +15,18 @@ import ErrorModal from './shared/components/UIElements/ErrorModal';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [modalContents, setModalContents] = useState(null) 
 
-  const login = useCallback(() => {
+  const login = useCallback((uid) => {
     setIsLoggedIn(true);
+    setUserId(uid)
   }, [])
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
+    setUserId(null)
   }, [])
 
   const modalToggle = useCallback((contents) => {
@@ -58,6 +61,7 @@ function App() {
     <React.Fragment>
       <AppContext.Provider value={{
         isLoggedIn: isLoggedIn, 
+        userId: userId,
         login: login, 
         logout:logout,
         modalToggle: modalToggle,

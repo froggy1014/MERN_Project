@@ -16,7 +16,7 @@ const useLogin = () => {
       if (data.response !== undefined && data.response.status !== 201) {
         throw new Error(data.response.data.message);
       }
-      cxt.login();
+      cxt.login(data.user.id);
       queryClient.invalidateQueries([QueryKey.USER]);
     },
     onError(err) {
