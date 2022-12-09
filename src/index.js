@@ -5,14 +5,21 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Portal from './shared/components/Navigation/Portal';
 import MainHeader from './shared/components/Navigation/MainHeader';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient();
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
-    <Portal selector="portal">
-      <MainHeader />
-    </Portal>
-    <App />
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <Portal selector="portal">
+        <MainHeader />
+      </Portal>
+      <App />
+    </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
 );
