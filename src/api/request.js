@@ -4,7 +4,7 @@ export async function get(url) {
   return await request
     .get(url)
     .then((res) => res.data)
-    .catch((error) => console.log(error));
+    .catch((error) => error);
 }
 
 export async function post(url, body) {
