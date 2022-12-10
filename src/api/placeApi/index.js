@@ -1,5 +1,5 @@
 
-import { get, post, patch } from '../request';
+import { get, post, patch, del } from '../request';
 
 
 export async function getPlacesByUser(uid) {
@@ -15,3 +15,6 @@ export async function patchPlace({pid, title, description}) {
 }
 
 
+export async function delPlace(pid) {
+  return await del(`places/${pid}`);
+}

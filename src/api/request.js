@@ -20,3 +20,10 @@ export async function patch(url, body) {
     .then((res) => res.data)
     .catch((error) => error);
 }
+
+export async function del(url) {
+  return await request
+  .delete(url)
+  .then((res) => res.data)
+  .catch((error) => error);
+}

@@ -27,7 +27,7 @@ const PlaceList = ({items}) => {
           title={place.title}
           description={place.description}
           address={place.address}
-          createirId={place.creator}
+          creatorId={place.creator}
           coordinate={place.location}
         />
       ))}
