@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react';
-
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import React from 'react';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import UsersList from '../components/UsersList';
 import useGetUser from '../../shared/hooks/useGetUser';
 
 const Users = () => {
 
-  const { isLoading, data} = useGetUser();
+  const { isLoading, data } = useGetUser();
 
   return (
     <React.Fragment>
       {isLoading && (
-        <div>
+        <div className='center'>
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && data && <UsersList user={data.users} />}
+      {!isLoading && data.users && <UsersList user={data.users} />}
     </React.Fragment>
 
   )

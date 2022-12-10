@@ -3,7 +3,6 @@ import axios from "axios";
 
 const request = axios.create({
   baseURL: 'http://localhost:5003/api/',
-  timeout: 1000,
 });
 
 request.defaults.headers.post['Content-Type'] = 'application/json';

@@ -5,8 +5,8 @@ import Button from '../../shared/components/FormElements/Button';
 import PlaceItem from './PlaceItem';
 import './PlaceList.css';
 
-const PlaceList = (props) => {
-  if (props.items.length === 0) {
+const PlaceList = ({items}) => {
+  if (items.place.length === 0) {
     return (
       <div className="place-list center">
         <Card>
@@ -19,7 +19,7 @@ const PlaceList = (props) => {
 
   return (
     <ul className="place-list">
-      {props.items.map((place) => (
+      {items.place.map((place) => (
         <PlaceItem
           key={place.id}
           id={place.id}
@@ -28,7 +28,7 @@ const PlaceList = (props) => {
           description={place.description}
           address={place.address}
           createirId={place.creator}
-          coordinate={place.coordinate}
+          coordinate={place.location}
         />
       ))}
     </ul>

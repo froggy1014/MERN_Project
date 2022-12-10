@@ -80,7 +80,7 @@ const Authenticate = () => {
   return (
     <React.Fragment>
       <Card className="authentication">
-        {(loginLoading || signupLoading) && <LoadingSpinner asOverlay/>}
+        {(loginLoading || signupLoading) && <div className='center'><LoadingSpinner asOverlay/></div>}
         <h2>Login Required</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
