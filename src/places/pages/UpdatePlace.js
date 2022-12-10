@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { AppContext } from '../../shared/context/AppContext';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
@@ -11,44 +10,31 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 
-import './PlaceForm.css';
+import { useQueryClient } from '@tanstack/react-query';
 
-const DUMMY_PLACES = [
-  {
-    id: 'p1',
-    image:
-      'https://cms-b-assets.familysearch.org/dims4/default/75309ad/2147483647/strip/true/crop/800x500+0+0/resize/1600x1000!/format/webp/quality/90/?url=http%3A%2F%2Ffh.familysearch.org%2Fsystem%2Ffiles%2Fteam%2Fait%2Fimages%2Fblog%2Fstatue-of-liberty-crown-and-torch.jpg',
-    title: 'The Statue of Liberty',
-    description:
-      'According to the National Park Service, the idea of a monument presented by the French people to the United States was first proposed by Édouard René de Laboulaye, president of the French Anti-Slavery Society and a prominent and important political thinker of his time.',
-    address: 'Liberty Island',
-    createirId: '',
-    coordinate: {
-      lat: 40.689247,
-      lng: -74.044502,
-    },
-    creator: 'u1',
-  },
-  {
-    id: 'p2',
-    image:
-      'https://cms-b-assets.familysearch.org/dims4/default/75309ad/2147483647/strip/true/crop/800x500+0+0/resize/1600x1000!/format/webp/quality/90/?url=http%3A%2F%2Ffh.familysearch.org%2Fsystem%2Ffiles%2Fteam%2Fait%2Fimages%2Fblog%2Fstatue-of-liberty-crown-and-torch.jpg',
-    title: 'The Statue of Liberty',
-    description:
-      'According to the National Park Service, the idea of a monument presented by the French people to the United States was first proposed by Édouard René de Laboulaye, president of the French Anti-Slavery Society and a prominent and important political thinker of his time.',
-    address: 'Liberty Island',
-    createirId: '',
-    coordinate: {
-      lat: 40.689247,
-      lng: -74.044502,
-    },
-    creator: 'u2',
-  },
-];
+import './PlaceForm.css';
+import { QueryKey } from '../../shared/constants';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import usePatchPlace from '../../shared/hooks/usePatchPlace';
 
 const UpdatePlace = () => {
+  const ctx = useContext(AppContext);
   const [isLoading, setIsLoading] = useState(true);
   const placeId = useParams().placeId;
+  const queryClient = useQueryClient();
+  const [identifiedPlace, setIdentifiedPlace] = useState(false);
+
+  const state = queryClient.getQueryState([
+    QueryKey.PLACES,
+    ctx.userId,
+  ]);
+  const { mutateAsync: UpdatePlace } = usePatchPlace();
+
+  useEffect(() => {
+    if (state) {
+      setIdentifiedPlace(state.data.place.filter((v) => v.id === placeId)[0]);
+    }
+  }, [state, placeId]);
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -63,8 +49,6 @@ const UpdatePlace = () => {
     },
     false
   );
-
-  const identifiedPlace = DUMMY_PLACES.find((p) => p.id === placeId);
 
   useEffect(() => {
     if (identifiedPlace) {
@@ -81,11 +65,11 @@ const UpdatePlace = () => {
         },
         true
       );
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }, [setFormData, identifiedPlace]);
-  // setFormData, identifiedPlace
 
+  // setFormData, identifiedPlace
   if (!identifiedPlace) {
     return (
       <div className="center">
@@ -96,15 +80,21 @@ const UpdatePlace = () => {
     );
   }
 
-  const placeUpdateSubmitHandler = (e) => {
+  const placeUpdateSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(formState.input);
+    console.log(formState.inputs);
+    const data = await UpdatePlace({
+      pid: placeId,
+      title: formState.inputs.title.value,
+      description: formState.inputs.description.value,
+    });
+    console.log(data);
   };
 
   if (isLoading) {
     return (
       <div className="center">
-        <h2>Loading ...</h2>
+        <LoadingSpinner asOverlay />
       </div>
     );
   }
@@ -118,9 +108,9 @@ const UpdatePlace = () => {
         label="Title"
         validators={[VALIDATOR_REQUIRE()]}
         errorText="please enter a valid title"
-        onInput={() => {}}
-        initialValue={formState.input.title.value}
-        initialIsValid={formState.input.title.isValid}
+        onInput={inputHandler}
+        initialValue={formState.inputs.title.value}
+        initialValid={formState.inputs.title.isValid}
       />
       <Input
         id="description"
@@ -129,8 +119,8 @@ const UpdatePlace = () => {
         validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="please enter a valid description at least 5 characters"
         onInput={inputHandler}
-        initialValue={formState.input.description.value}
-        initialIsValid={formState.input.description.isValid}
+        initialValue={formState.inputs.description.value}
+        initialValid={formState.inputs.description.isValid}
       />
       <Button type="submit" disabled={!formState.isValid}>
         UPDATE PLACE

@@ -78,7 +78,7 @@ const PlaceItem = (props) => {
             {ctx.isLoggedIn && 
             (
               <>
-                <Button Button to={`/places/${props.id}`}>EDIT</Button>
+                <Button to={`/places/${props.id}`}>EDIT</Button>
                 <Button danger onClick={showDeleteWarningHandler}>DELETE</Button>
               </>
             )
