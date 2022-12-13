@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import {
@@ -95,6 +96,7 @@ const Authenticate = () => {
               onInput={inputHandler}
             />
           )}
+          {!isLoginMode && (<ImageUpload center />)}
           <Input
             element="input"
             id="email"
