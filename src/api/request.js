@@ -7,9 +7,9 @@ export async function get(url) {
     .catch((error) => error);
 }
 
-export async function post(url, body) {
+export async function post(url, body, header) {
   return await request
-    .post(url, body)
+    .post(url, body, header || null)
     .then((res) => res.data)
     .catch((error) => error);
 }
