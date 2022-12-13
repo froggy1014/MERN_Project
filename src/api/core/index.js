@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const request = axios.create({
-  baseURL: 'http://localhost:5002/api/',
+  baseURL: `${process.env.REACT_APP_BASE_URL}/api/`,
 });
 
 request.defaults.headers.post['Content-Type'] = 'application/json';
