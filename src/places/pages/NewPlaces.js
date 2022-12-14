@@ -46,7 +46,7 @@ const NewPlace = () =>  {
           creator: cxt.userId,
           image: image.value,
         }
-        await newPlace(body);
+        await newPlace({body, token: cxt.token});
       }
       postPlace();
     }

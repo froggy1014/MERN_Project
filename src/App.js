@@ -14,18 +14,18 @@ import ErrorModal from './shared/components/UIElements/ErrorModal';
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [modalContents, setModalContents] = useState(null) 
 
-  const login = useCallback((uid) => {
-    setIsLoggedIn(true);
+  const login = useCallback((uid, access_token) => {
+    setToken(access_token);
     setUserId(uid)
   }, [])
 
   const logout = useCallback(() => {
-    setIsLoggedIn(false);
+    setToken(null);
     setUserId(null)
   }, [])
 
@@ -36,7 +36,7 @@ function App() {
 
   let routes;
 
-  if(isLoggedIn) {
+  if(token) {
     routes = (
       <React.Fragment>
         <Route exact path="/" element={<Users />} />
@@ -60,10 +60,11 @@ function App() {
   return (
     <React.Fragment>
       <AppContext.Provider value={{
-        isLoggedIn: isLoggedIn, 
-        userId: userId,
-        login: login, 
-        logout:logout,
+        isLoggedIn: !!token, 
+        token : token,
+        userId : userId,
+        login: login,
+        logout: logout,
         modalToggle: modalToggle,
         }}>
         <MainNavigation />

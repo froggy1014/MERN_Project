@@ -15,7 +15,7 @@ const useSignup = () => {
       if (data.response !== undefined && data.response.status !== 201) {
         throw new Error(data.response.data.message);
       }
-      cxt.login(data.user.id);
+      cxt.login(data.userId, data.accessToken);
       queryClient.invalidateQueries([QueryKey.USER]);
       navigate(`/`);
     },
