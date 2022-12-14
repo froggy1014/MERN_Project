@@ -7,7 +7,13 @@ export async function getPlacesByUser(uid) {
 }
 
 export async function postNewPlace(body) {
-  return await post('places', body);
+  const form = new FormData();
+  Object.entries(body).forEach((v) => form.append(v[0], v[1]));
+  return await post('places', form, {
+    headers: {
+    'Content-Type': 'multipart/form-data'
+  }
+  });
 }
 
 export async function patchPlace({pid, title, description}) {

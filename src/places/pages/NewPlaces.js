@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
 import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
@@ -10,7 +8,7 @@ import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
 import useNewPlace from '../../shared/hooks/useNewPlace';
 import { AppContext } from '../../shared/context/AppContext';
-
+import { ImageUpload, Input, Button } from 'shared/components/FormElements'
 
 
 const NewPlace = () =>  {
@@ -27,7 +25,11 @@ const NewPlace = () =>  {
         address: {
           value: '',
           isValid: false,
-        }},
+        },
+        image: {
+          value: null,
+          isValid: false,
+        },},
         false,
     );
 
@@ -36,12 +38,13 @@ const NewPlace = () =>  {
     const placeSubmitHandler = event => {
       event.preventDefault();
       async function postPlace() {
-        const { title, description, address } = formState.inputs;
+        const { title, description, address, image } = formState.inputs;
         const body = {
           title : title.value,
           description : description.value,
           address : address.value,
-          creator: cxt.userId
+          creator: cxt.userId,
+          image: image.value,
         }
         await newPlace(body);
       }
@@ -74,6 +77,7 @@ const NewPlace = () =>  {
           errorText="please enter a valid address"
           onInput={inputHandler}
         />
+        <ImageUpload center id="image" onInput={inputHandler} errorText="Please provide image"/>
         <Button type="submit" disabled={!formState.isValid}>
           ADD PLACE
         </Button>
