@@ -21,9 +21,12 @@ export async function patch(url, body) {
     .catch((error) => error);
 }
 
-export async function del(url) {
+export async function del(url, token) {
   return await request
-  .delete(url)
+  .delete(url, {
+    headers: {
+    'Authorization': 'Bearer ' + token,
+  }},)
   .then((res) => res.data)
   .catch((error) => error);
 }

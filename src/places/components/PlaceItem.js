@@ -17,7 +17,7 @@ const PlaceItem = (props) => {
 
   const confirmDeleteHandler = async () => {
     setConfirmModal(false);
-    await deletePlace(props.id);
+    await deletePlace({pid: props.id, token: ctx.token});
   };
   return (
     <React.Fragment>

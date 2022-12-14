@@ -25,6 +25,6 @@ export async function patchPlace({pid, title, description}) {
 }
 
 
-export async function delPlace(pid) {
-  return await del(`places/${pid}`);
-}
+export async function delPlace({pid, token}) {
+  return await del(`places/${pid}`, token);
+};

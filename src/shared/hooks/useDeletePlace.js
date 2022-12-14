@@ -16,6 +16,7 @@ const useDeletePlace = () => {
         throw new Error(data.response.data.message);
       }
       queryClient.invalidateQueries([QueryKey.USER]);
+      queryClient.invalidateQueries([QueryKey.PLACES, cxt.userId]);
       navigate(`/${cxt.userId}/places`);
     },
     onError(err) {

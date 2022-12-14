@@ -16,6 +16,7 @@ const useNewPlace = () => {
         throw new Error(data.response.data.message);
       }
       queryClient.invalidateQueries([QueryKey.USER]);
+      queryClient.invalidateQueries([QueryKey.PLACES, cxt.userId]);
       navigate('/');
     },
     onError(err) {
