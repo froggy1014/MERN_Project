@@ -68,8 +68,6 @@ const Authenticate = () => {
   const authSubmitHandler = async (event) => {
     event.preventDefault();
     
-    console.log(formState.inputs)
-
     if (isLoginMode) {
         await Login({
           email: formState.inputs.email.value,

@@ -82,7 +82,6 @@ const UpdatePlace = () => {
 
   const placeUpdateSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log(formState.inputs);
     const data = await UpdatePlace({
       pid: placeId,
       title: formState.inputs.title.value,
