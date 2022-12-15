@@ -2,7 +2,7 @@
 import { get, post } from '../request';
 
 export async function getUsers() {
-  return await get('/users');
+  return await get('users');
 }
 
 
