@@ -14,9 +14,9 @@ export async function post(url, body, header) {
     .catch((error) => error);
 }
 
-export async function patch(url, body) {
+export async function patch(url, body, header) {
   return await request
-    .patch(url, body)
+    .patch(url, body, header || null)
     .then((res) => res.data)
     .catch((error) => error);
 }

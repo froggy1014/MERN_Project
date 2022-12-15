@@ -86,6 +86,7 @@ const UpdatePlace = () => {
       pid: placeId,
       title: formState.inputs.title.value,
       description: formState.inputs.description.value,
+      token: ctx.token,
     });
     console.log(data);
   };

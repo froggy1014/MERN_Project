@@ -20,8 +20,12 @@ export async function postNewPlace({body, token}) {
   });
 }
 
-export async function patchPlace({pid, title, description}) {
-  return await patch(`places/${pid}`, {title, description});
+export async function patchPlace({pid, title, description, token}) {
+  return await patch(`places/${pid}`, {title, description}, {
+    headers: {
+      'Authorization': 'Bearer ' + token,
+    }
+  });
 }
 
 
