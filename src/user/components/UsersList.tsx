@@ -1,11 +1,10 @@
-import React from 'react';
-
+import { IUserData } from 'shared/types/User';
 import UserItem from './UserItem';
 import Card from '../../shared/components/UIElements/Card';
 import './UsersList.css';
 
-const UsersList = ({user}) => {
-  if (user.length === 0) {
+function UsersList({ users }: { users: IUserData[] }) {
+  if (users.length === 0) {
     return (
       <div className="center">
         <Card>
@@ -17,17 +16,17 @@ const UsersList = ({user}) => {
 
   return (
     <ul className="users-list">
-      {user.map(user => (
+      {users.map((user: IUserData) => (
         <UserItem
           key={user.id}
           id={user.id}
           image={user.image}
           name={user.name}
-          placeCount={user.places.length}
+          places={user.places}
         />
       ))}
     </ul>
   );
-};
+}
 
 export default UsersList;

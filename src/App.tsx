@@ -52,7 +52,7 @@ function App() {
 
   const ctxVariables = useMemo(
     () => ({ isLoggedIn: !!token, token, userId, login, logout, modalToggle }),
-    [],
+    [token, userId, login, logout],
   );
 
   return (
