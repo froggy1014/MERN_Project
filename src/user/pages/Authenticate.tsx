@@ -1,3 +1,4 @@
+import { FormType } from 'shared/types/Hooks';
 import React, { useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
