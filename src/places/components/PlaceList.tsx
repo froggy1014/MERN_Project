@@ -1,3 +1,4 @@
+import { IQueryPlaceData, TPlaceDetail } from 'shared/types/Place';
 import React from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
@@ -5,13 +6,13 @@ import Button from '../../shared/components/FormElements/Button';
 import PlaceItem from './PlaceItem';
 import './PlaceList.css';
 
-const PlaceList = ({items}) => {
+function PlaceList({ items }: { items: IQueryPlaceData }) {
   if (items.place.length === 0) {
     return (
       <div className="place-list center">
         <Card>
           <h2>No places found. Maybe create one?</h2>
-          <Button to='/places/new'>Share Place</Button>
+          <Button to="/places/new">Share Place</Button>
         </Card>
       </div>
     );
@@ -19,7 +20,7 @@ const PlaceList = ({items}) => {
 
   return (
     <ul className="place-list">
-      {items.place.map((place) => (
+      {items.place.map((place: TPlaceDetail) => (
         <PlaceItem
           key={place.id}
           id={place.id}
@@ -27,12 +28,12 @@ const PlaceList = ({items}) => {
           title={place.title}
           description={place.description}
           address={place.address}
-          creatorId={place.creator}
-          coordinate={place.location}
+          creator={place.creator}
+          location={place.location}
         />
       ))}
     </ul>
   );
-};
+}
 
 export default PlaceList;

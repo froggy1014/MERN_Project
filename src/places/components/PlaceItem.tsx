@@ -1,3 +1,4 @@
+import { TPlaceDetail } from 'shared/types/Place';
 import React, { useContext, useState } from 'react';
 
 import Button from '../../shared/components/FormElements/Button';
@@ -9,7 +10,8 @@ import { AppContext } from '../../shared/context/AppContext';
 import './PlaceItem.css';
 import useDeletePlace from '../../shared/hooks/useDeletePlace';
 
-const PlaceItem = (props) => {
+function PlaceItem(props: TPlaceDetail) {
+  const { id, location, creator, address, title, image, description } = props;
   const ctx = useContext(AppContext);
   const [mapModal, setMapModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
@@ -17,37 +19,39 @@ const PlaceItem = (props) => {
 
   const confirmDeleteHandler = async () => {
     setConfirmModal(false);
-    await deletePlace({pid: props.id, token: ctx.token});
+    await deletePlace({ pid: id, token: ctx.token });
   };
 
   return (
-    <React.Fragment>
+    <>
       <Modal
         show={mapModal}
-        onCencel={() => setMapModal(prev => !prev)}
-        header={props.address}
+        onCencel={() => setMapModal((prev) => !prev)}
+        header={address}
         contentClass="place-item__modal-content"
         footerClass="place-item__modal-actions"
-        footer={<Button onClick={() => setMapModal(prev => !prev)}>Close</Button>}
+        footer={
+          <Button onClick={() => setMapModal((prev) => !prev)}>Close</Button>
+        }
       >
         <div className="map-container">
-          <Map center={props.coordinate} zoom={16} />
+          <Map center={location} zoom={16} />
         </div>
       </Modal>
       <Modal
         show={confirmModal}
-        onCencel={() => setConfirmModal(prev=>!prev)}
+        onCencel={() => setConfirmModal((prev) => !prev)}
         heaer="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
-          <React.Fragment>
-            <Button inverse onClick={() => setConfirmModal(prev=>!prev)}>
+          <>
+            <Button inverse onClick={() => setConfirmModal((prev) => !prev)}>
               CANCEL
             </Button>
             <Button dnager onClick={confirmDeleteHandler}>
               DELETE
             </Button>
-          </React.Fragment>
+          </>
         }
       >
         <p>Do you want to proceed and delete this place?</p>
@@ -56,21 +60,21 @@ const PlaceItem = (props) => {
         <Card className="place-item__content">
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
-            <img src={process.env.REACT_APP_ASSET_URL + props.image} alt={props.title} />
+            <img src={process.env.REACT_APP_ASSET_URL + image} alt={title} />
           </div>
           <div className="place-item__info">
-            <h2>{props.title}</h2>
-            <h3>{props.address}</h3>
-            <p>{props.description}</p>
+            <h2>{title}</h2>
+            <h3>{address}</h3>
+            <p>{description}</p>
           </div>
           <div className="place-item__actions">
-            <Button inverse onClick={() => setMapModal(prev => !prev)}>
+            <Button inverse onClick={() => setMapModal((prev) => !prev)}>
               VIEW ON MAP
             </Button>
-            {ctx.userId === props.creatorId && (
+            {ctx.userId === creator && (
               <>
-                <Button to={`/places/${props.id}`}>EDIT</Button>
-                <Button danger onClick={() => setConfirmModal(prev=>!prev)}>
+                <Button to={`/places/${id}`}>EDIT</Button>
+                <Button danger onClick={() => setConfirmModal((prev) => !prev)}>
                   DELETE
                 </Button>
               </>
@@ -78,8 +82,8 @@ const PlaceItem = (props) => {
           </div>
         </Card>
       </li>
-    </React.Fragment>
+    </>
   );
-};
+}
 
 export default PlaceItem;

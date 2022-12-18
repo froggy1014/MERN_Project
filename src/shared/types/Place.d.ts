@@ -9,8 +9,6 @@ export type TPlaceDetail = {
     lng: number;
   };
   title: string;
-  __v: number;
-  _id: string;
 };
 
 export interface IQueryPlaceData {
