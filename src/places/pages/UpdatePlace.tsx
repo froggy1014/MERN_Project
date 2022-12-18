@@ -106,7 +106,7 @@ _id: "639c7bdd8df3745e6c31c536"
   ) => {
     e.preventDefault();
     await UpdatePlace({
-      pid: placeId,
+      pid: placeId as string,
       title: formState.inputs.title.value,
       description: formState.inputs.description.value,
       token: ctx.token,

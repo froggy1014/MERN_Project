@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const request = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
 
 request.defaults.headers.post['Content-Type'] = 'application/json';
@@ -31,6 +31,5 @@ request.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-
 
 export default request;
