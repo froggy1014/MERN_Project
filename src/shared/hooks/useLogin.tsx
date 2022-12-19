@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
-
-import { AppContext } from '../context/AppContext';
-
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
 import { postLogin } from '../../api/userApi';
 import { QueryKey } from '../constants';
@@ -20,9 +18,13 @@ const useLogin = () => {
       queryClient.invalidateQueries([QueryKey.USER]);
     },
     onError(err) {
-      cxt.modalToggle(err.message || 'Something went wrong, please try again.');
+      if (err instanceof Error) {
+        cxt.modalToggle(
+          err.message || 'Something went wrong, please try again.',
+        );
+      }
     },
   });
-}
+};
 
 export default useLogin;

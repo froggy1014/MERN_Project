@@ -1,7 +1,7 @@
 import { INewPlaceBody, IPatchPlace, IDelPlace } from './placeAPI.d';
 import { get, post, patch, del } from '../request';
 
-export async function getPlacesByUser(uid: string) {
+export async function getPlacesByUser(uid: string | undefined) {
   return get(`places/user/${uid}`);
 }
 
