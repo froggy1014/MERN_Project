@@ -10,7 +10,7 @@ export const useAuth = () => {
   const [userId, setUserId] = useState<string | null>(null);
 
   const login = useCallback(
-    (uid: string, accessToken: string, expirationDate: Date) => {
+    (uid: string, accessToken: string, expirationDate?: Date) => {
       setToken(accessToken);
       setUserId(uid);
       const tokenExpirationDate =
