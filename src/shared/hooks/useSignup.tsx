@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { useContext } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import { postSignup } from '../../api/userApi';
 import { QueryKey } from '../constants';
-import { useNavigate } from 'react-router-dom';
 
 const useSignup = () => {
   const navigate = useNavigate();
@@ -20,9 +20,13 @@ const useSignup = () => {
       navigate(`/`);
     },
     onError(err) {
-      cxt.modalToggle(err.message || 'Something went wrong, please try again.');
+      if (err instanceof Error) {
+        cxt.modalToggle(
+          err.message || 'Something went wrong, please try again.',
+        );
+      }
     },
   });
-}
+};
 
 export default useSignup;
