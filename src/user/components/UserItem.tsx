@@ -1,7 +1,6 @@
 import { IUserData } from 'shared/types/User';
 import { Link } from 'react-router-dom';
-import Avatar from '../../shared/components/UIElements/Avatar';
-import Card from '../../shared/components/UIElements/Card';
+import { Avatar, Card } from '../../shared/components/UIElements';
 import './UserItem.css';
 
 function UserItem({ id, name, image, places }: IUserData) {

@@ -1,10 +1,9 @@
-import { FormType } from 'shared/types/Hooks';
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
-import ImageUpload from '../../shared/components/FormElements/ImageUpload';
+import { LoadingSpinner } from '../../shared/components/UIElements';
 import Input from '../../shared/components/FormElements/Input';
+import ImageUpload from '../../shared/components/FormElements/ImageUpload';
 import Button from '../../shared/components/FormElements/Button';
 import {
   VALIDATOR_EMAIL,
@@ -64,7 +63,7 @@ function Authenticate() {
   const { isLoading: signupLoading, mutateAsync: Signup } = useSignup();
   const { isLoading: loginLoading, mutateAsync: Login } = useLogin();
 
-  const authSubmitHandler = async (event: React.FormEvent) => {
+  const authSubmitHandler = async (event: FormEvent) => {
     event.preventDefault();
 
     if (isLoginMode) {

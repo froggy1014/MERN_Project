@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useGetPlacesByUser from '../../shared/hooks/useGetPlacesByUser';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import { LoadingSpinner } from '../../shared/components/UIElements';
 import PlaceList from '../components/PlaceList';
 
 function UserPlaces() {

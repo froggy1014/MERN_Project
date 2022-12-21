@@ -1,16 +1,11 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { TPlaceDetail, IQueryPlaceData } from 'shared/types/Place';
-import React, {
-  FormEventHandler,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../../shared/context/AppContext';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
-import Card from '../../shared/components/UIElements/Card';
+import { Card, LoadingSpinner } from '../../shared/components/UIElements';
 import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
@@ -19,7 +14,6 @@ import { useForm } from '../../shared/hooks/form-hook';
 
 import './PlaceForm.css';
 import { QueryKey } from '../../shared/constants';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import usePatchPlace from '../../shared/hooks/usePatchPlace';
 
 function UpdatePlace() {
@@ -89,9 +83,7 @@ function UpdatePlace() {
     );
   }
   // : React.FormEvent<HTMLFormElement>
-  const placeUpdateSubmitHandler = async (
-    e: React.FormEvent<HTMLFormElement>,
-  ) => {
+  const placeUpdateSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await UpdatePlace({
       pid: placeId as string,

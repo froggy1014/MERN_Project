@@ -2,12 +2,11 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useCallback, Suspense, lazy, useMemo } from 'react';
 import './App.css';
 
-import LoadingSpinner from 'shared/components/UIElements/LoadingSpinner';
+import { LoadingSpinner, ErrorModal } from 'shared/components/UIElements';
 import { useAuth } from './shared/hooks/useAuth';
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AppContext } from './shared/context/AppContext';
-import ErrorModal from './shared/components/UIElements/ErrorModal';
 
 const Users = lazy(() => import('./user/pages/Users'));
 const UserPlaces = lazy(() => import('./places/pages/UserPlaces'));

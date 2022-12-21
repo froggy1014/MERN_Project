@@ -1,4 +1,4 @@
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import { LoadingSpinner } from '../../shared/components/UIElements';
 import UsersList from '../components/UsersList';
 import useGetUser from '../../shared/hooks/useGetUser';
 

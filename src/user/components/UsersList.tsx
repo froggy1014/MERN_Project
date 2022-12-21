@@ -1,6 +1,6 @@
 import { IUserData } from 'shared/types/User';
 import UserItem from './UserItem';
-import Card from '../../shared/components/UIElements/Card';
+import { Card } from '../../shared/components/UIElements';
 import './UsersList.css';
 
 function UsersList({ users }: { users: IUserData[] }) {

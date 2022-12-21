@@ -2,10 +2,12 @@ import { TPlaceDetail } from 'shared/types/Place';
 import React, { useContext, useState } from 'react';
 
 import Button from '../../shared/components/FormElements/Button';
-import Card from '../../shared/components/UIElements/Card';
-import Map from '../../shared/components/UIElements/Map';
-import Modal from '../../shared/components/UIElements/Modal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import {
+  Card,
+  Map,
+  Modal,
+  LoadingSpinner,
+} from '../../shared/components/UIElements';
 import { AppContext } from '../../shared/context/AppContext';
 import './PlaceItem.css';
 import useDeletePlace from '../../shared/hooks/useDeletePlace';
