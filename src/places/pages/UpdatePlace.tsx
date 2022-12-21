@@ -45,18 +45,6 @@ function UpdatePlace() {
     }
   }, [state, placeId]);
 
-  /**
-   * address: "333 Starke Rd, Carlstadt, NJ 07072"
-creator: "639c79b38df3745e6c31c52e"
-description: "The Company in NJ where I was working as intern last year... "
-id: "639c7bdd8df3745e6c31c536"
-image: "uploads/images/78e6bf4b-fdfb-42a6-b9bf-93f5d130f668.jpeg"
-location: {lat: 40.8332584, lng: -74.0746145}
-title: "Grand BK"
-__v: 0
-_id: "639c7bdd8df3745e6c31c536"
-   */
-
   const [formState, inputHandler, setFormData] = useForm(
     {
       title: {

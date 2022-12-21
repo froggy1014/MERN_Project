@@ -26,7 +26,7 @@ function PlaceItem(props: TPlaceDetail) {
     <>
       <Modal
         show={mapModal}
-        onCencel={() => setMapModal((prev) => !prev)}
+        onCancel={() => setMapModal((prev) => !prev)}
         header={address}
         contentClass="place-item__modal-content"
         footerClass="place-item__modal-actions"
@@ -40,8 +40,8 @@ function PlaceItem(props: TPlaceDetail) {
       </Modal>
       <Modal
         show={confirmModal}
-        onCencel={() => setConfirmModal((prev) => !prev)}
-        heaer="Are you sure?"
+        onCancel={() => setConfirmModal((prev) => !prev)}
+        header="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
           <>

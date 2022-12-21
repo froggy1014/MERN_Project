@@ -9,7 +9,7 @@ function Users() {
     <>
       {isLoading && (
         <div className="center">
-          <LoadingSpinner />
+          <LoadingSpinner asOverlay />
         </div>
       )}
       {!isLoading && data.users && <UsersList users={data.users} />}
