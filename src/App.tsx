@@ -3,9 +3,9 @@ import { useState, useCallback, Suspense, lazy, useMemo } from 'react';
 import './App.css';
 
 import { LoadingSpinner, ErrorModal } from 'shared/components/UIElements';
+import { MainNavigation } from 'shared/components/Navigation';
 import { useAuth } from './shared/hooks/useAuth';
 
-import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AppContext } from './shared/context/AppContext';
 
 const Users = lazy(() => import('./user/pages/Users'));

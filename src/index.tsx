@@ -3,9 +3,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import * as ReactDOM from 'react-dom/client';
 import './index.css';
+import { Portal, MainHeader } from 'shared/components/Navigation';
 import App from './App';
-import Portal from './shared/components/Navigation/Portal';
-import MainHeader from './shared/components/Navigation/MainHeader';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,7 +17,9 @@ const queryClient = new QueryClient({
   },
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
 
 root.render(
   <QueryClientProvider client={queryClient}>
