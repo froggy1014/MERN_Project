@@ -1,9 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { IButton } from 'shared/types/Form';
 
 import './Button.css';
 
-function Button(props: any) {
+function Button(props: Partial<IButton>) {
   const { inverse, href, size, children, to, danger, type, onClick, disabled } =
     props;
   if (href) {

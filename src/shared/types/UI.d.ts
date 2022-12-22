@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type TErrorModal = {
   error: string | null;
-  onClear: (contents: string) => void;
+  onClear: () => void;
 };
 
 export type TMap = {
@@ -21,6 +21,6 @@ export interface IModal {
   footerClass?: string;
   header?: string;
   headerClass?: string;
-  onCancel: (contents: string) => void;
+  onCancel: () => void;
   onSubmit?: () => void;
 }

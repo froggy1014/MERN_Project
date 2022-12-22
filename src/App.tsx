@@ -19,7 +19,7 @@ function App() {
   const [modalContents, setModalContents] = useState<string | null>(null);
   const { token, login, logout, userId } = useAuth();
 
-  const modalToggle = useCallback((contents: string) => {
+  const modalToggle = useCallback((contents?: string) => {
     setModalShow((prev) => !prev);
     if (contents) setModalContents(contents);
   }, []);

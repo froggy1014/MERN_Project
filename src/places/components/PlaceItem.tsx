@@ -50,7 +50,7 @@ function PlaceItem(props: TPlaceDetail) {
             <Button inverse onClick={() => setConfirmModal((prev) => !prev)}>
               CANCEL
             </Button>
-            <Button dnager onClick={confirmDeleteHandler}>
+            <Button danger onClick={confirmDeleteHandler}>
               DELETE
             </Button>
           </>
