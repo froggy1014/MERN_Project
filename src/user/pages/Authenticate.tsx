@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 import Card from '../../shared/components/UIElements/Card';
 import { LoadingSpinner } from '../../shared/components/UIElements';
@@ -11,7 +11,6 @@ import {
   VALIDATOR_REQUIRE,
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
-import './Authenticate.css';
 import useSignup from '../../shared/hooks/useSignup';
 import useLogin from '../../shared/hooks/useLogin';
 
@@ -82,7 +81,7 @@ function Authenticate() {
   };
 
   return (
-    <Card className="authentication">
+    <Card className="w-11/12 max-w-[25rem] my-28 mx-auto">
       {(loginLoading || signupLoading) && (
         <div className="center">
           <LoadingSpinner asOverlay />
@@ -90,7 +89,7 @@ function Authenticate() {
       )}
       <h2>Login Required</h2>
       <hr />
-      <form onSubmit={authSubmitHandler}>
+      <form className="mb-4" onSubmit={authSubmitHandler}>
         {!isLoginMode && (
           <Input
             element="input"
@@ -123,13 +122,17 @@ function Authenticate() {
           errorText="Please enter a valid password, at least 6 characters."
           onInput={inputHandler}
         />
-        <Button type="submit" disabled={!formState.isValid}>
-          {isLoginMode ? 'LOGIN' : 'SIGNUP'}
-        </Button>
+        <div className="w-full flex justify-center">
+          <Button type="submit" disabled={!formState.isValid}>
+            {isLoginMode ? 'LOGIN' : 'SIGNUP'}
+          </Button>
+        </div>
       </form>
-      <Button inverse onClick={switchModeHandler}>
-        SWITCH TO {!isLoginMode ? 'LOGIN' : 'SIGNUP'}
-      </Button>
+      <div className="w-full flex justify-center">
+        <Button inverse onClick={switchModeHandler}>
+          SWITCH TO {!isLoginMode ? 'LOGIN' : 'SIGNUP'}
+        </Button>
+      </div>
     </Card>
   );
 }

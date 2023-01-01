@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useCallback, Suspense, lazy, useMemo } from 'react';
-import './App.css';
 
 import { LoadingSpinner, ErrorModal } from 'shared/components/UIElements';
 import { MainNavigation } from 'shared/components/Navigation';
