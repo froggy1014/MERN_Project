@@ -2,14 +2,24 @@ import { Link } from 'react-router-dom';
 import { IButton } from 'shared/types/Form';
 
 function Button(props: Partial<IButton>) {
-  const { inverse, href, size, children, to, danger, type, onClick, disabled } =
-    props;
+  const {
+    inverse,
+    href,
+    size,
+    children,
+    to,
+    danger,
+    type,
+    onClick,
+    disabled,
+    className,
+  } = props;
   if (href) {
     return (
       <a
         className={`button text-${size || 'default'} ${inverse && 'inverse'} ${
           danger && 'danger'
-        }`}
+        } ${className}`}
         href={href}
       >
         {children}

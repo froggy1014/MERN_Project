@@ -6,7 +6,6 @@ import {
   VALIDATOR_REQUIRE,
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
-import './PlaceForm.css';
 import useNewPlace from '../../shared/hooks/useNewPlace';
 import { AppContext } from '../../shared/context/AppContext';
 
@@ -52,7 +51,10 @@ function NewPlace() {
     postPlace();
   };
   return (
-    <form className="place-form" onSubmit={placeSubmitHandler}>
+    <form
+      className="relative list-none mx-auto p-4 w-11/12 max-w-[40rem] shadow-lg rounded-lg bg-white"
+      onSubmit={placeSubmitHandler}
+    >
       <Input
         id="title"
         element="input"

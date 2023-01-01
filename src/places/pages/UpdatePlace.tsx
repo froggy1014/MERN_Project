@@ -12,7 +12,6 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 
-import './PlaceForm.css';
 import { QueryKey } from '../../shared/constants';
 import usePatchPlace from '../../shared/hooks/usePatchPlace';
 
@@ -102,7 +101,10 @@ function UpdatePlace() {
   }
 
   return (
-    <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+    <form
+      className="relative list-none mx-auto p-4 w-11/12 max-w-[40rem] shadow-lg rounded-lg bg-white"
+      onSubmit={placeUpdateSubmitHandler}
+    >
       <Input
         id="title"
         element="input"

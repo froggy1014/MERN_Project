@@ -10,6 +10,7 @@ export interface IButton {
   type: 'button' | 'submit' | 'reset' | undefined;
   onClick: () => void;
   disabled: boolean;
+  className: string;
 }
 
 export interface IInput {
