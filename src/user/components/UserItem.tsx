@@ -7,7 +7,7 @@ function UserItem({ id, name, image, places }: IUserData) {
     <li className="user-item">
       <Card className="!p-0">
         <Link
-          className="flex items-center w-full h-full no-underline p-4 text-white bg-black"
+          className="flex items-center w-full h-full no-underline p-4 text-white"
           to={`/${id}/places`}
         >
           <div className="w-16 h-16 mr-4">

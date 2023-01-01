@@ -61,7 +61,9 @@ function ImageUpload({
         onChange={pickedHandler}
       />
       <div
-        className={`${center && 'flex justify-center items-center flex-col'}`}
+        className={`${
+          center && 'flex justify-center items-center flex-col mb-4'
+        }`}
       >
         <div className="w-56 h-56 border-solid border-[1px] border-body flex justify-center items-center text-center mb-4">
           {previewUrl && (
@@ -73,11 +75,15 @@ function ImageUpload({
           )}
           {!previewUrl && <p>Please pick an image.</p>}
         </div>
-        <Button type="button" onClick={pickImageHandler}>
+        <Button className="mb-4" type="button" onClick={pickImageHandler}>
           Pick Image
         </Button>
       </div>
-      {!isValid && <p>{errorText}</p>}
+      {!isValid && (
+        <div className="w-full flex justify-center my-4">
+          <p className="text-red mb-1">{errorText}</p>
+        </div>
+      )}
     </div>
   );
 }

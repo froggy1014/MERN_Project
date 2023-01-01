@@ -86,9 +86,11 @@ function NewPlace() {
         onInput={inputHandler}
         errorText="Please provide image"
       />
-      <Button type="submit" disabled={!formState.isValid}>
-        ADD PLACE
-      </Button>
+      <div className="w-full flex justify-center">
+        <Button type="submit" disabled={!formState.isValid}>
+          ADD PLACE
+        </Button>
+      </div>
     </form>
   );
 }

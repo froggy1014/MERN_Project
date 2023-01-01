@@ -54,7 +54,7 @@ body {
 
   /* User */
   .user-item {
-    @apply m-4 min-w-[280px] bg-black opacity-90
+    @apply m-4 min-w-[280px]
   }
 
   .user-item a { 
@@ -91,8 +91,10 @@ body {
     @apply bg-shyGreen-400 border-shyGreen-400 hover:bg-shyGreen-300 hover:border-shyGreen-200
   }
 
+  .center {
+    @aaply text-center flex justify-center items-center
+  }
 }
-
 
 .slide-in-left-enter {
   transform: translateX(-100%);
@@ -115,9 +117,24 @@ body {
   transition: all 200ms;
 }
 
-.center {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modal-enter {
+  transform: translateY(-10rem);
+  opacity: 0;
+}
+
+.modal-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 400ms;
+}
+
+.modal-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-exit-active {
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all 400ms;
 }
