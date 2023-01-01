@@ -2,7 +2,7 @@ import { useReducer, useEffect, ChangeEvent } from 'react';
 import { IChangeAction, IInput, IState, TActions } from 'shared/types/Form';
 
 import { validate } from '../../util/validators';
-import './Input.css';
+// import './Input.css';
 
 const inputReducer = (state: IState, action: TActions) => {
   switch (action.type) {
@@ -46,7 +46,7 @@ function Input(props: Partial<IInput>) {
     isTouched: false,
     isValid: initialValid || false,
   });
-
+  const inValid = !inputState.isValid && inputState.isTouched;
   const { value, isValid } = inputState;
 
   useEffect(() => {
@@ -72,6 +72,9 @@ function Input(props: Partial<IInput>) {
   const El =
     element === 'input' ? (
       <input
+        className={`block w-full border-[1px] border-gray-200 border-solid bg-gray-100 py-[0.15rem] px-[0.25rem] ${
+          inValid && 'border-red bg-white'
+        }`}
         id={id}
         type={type}
         placeholder={placeholder}
@@ -81,6 +84,9 @@ function Input(props: Partial<IInput>) {
       />
     ) : (
       <textarea
+        className={`block w-full border-[1px] border-gray-200 border-solid bg-gray-100 py-[0.15rem] px-[0.25rem] ${
+          inValid && 'border-red bg-white'
+        }`}
         id={id}
         rows={rows || 3}
         onChange={changeHandler}
@@ -90,14 +96,12 @@ function Input(props: Partial<IInput>) {
     );
 
   return (
-    <div
-      className={`form-control ${
-        !inputState.isValid && inputState.isTouched && 'form-control--invalid'
-      }`}
-    >
-      <label htmlFor={id}>{label}</label>
+    <div className={`my-4 font-bold mb-4 ${inValid && 'text-red'}`}>
+      <label className="block mb-2" htmlFor={id}>
+        {label}
+      </label>
       {El}
-      {!inputState.isValid && inputState.isTouched && <p>{errorText}</p>}
+      {inValid && <p>{errorText}</p>}
     </div>
   );
 }

@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom';
 import { IButton } from 'shared/types/Form';
 
-import './Button.css';
-
 function Button(props: Partial<IButton>) {
   const { inverse, href, size, children, to, danger, type, onClick, disabled } =
     props;
   if (href) {
     return (
       <a
-        className={`button button--${size || 'default'} ${
-          inverse && 'button--inverse'
-        } ${danger && 'button--danger'}`}
+        className={`button text-${size || 'default'} ${inverse && 'inverse'} ${
+          danger && 'danger'
+        }`}
         href={href}
       >
         {children}
@@ -23,9 +21,9 @@ function Button(props: Partial<IButton>) {
       <Link
         to={to}
         // exact={exact}
-        className={`button button--${size || 'default'} ${
-          inverse && 'button--inverse'
-        } ${danger && 'button--danger'}`}
+        className={`button text-${size || 'default'} ${inverse && 'inverse'} ${
+          danger && 'danger'
+        }`}
       >
         {children}
       </Link>
@@ -33,9 +31,9 @@ function Button(props: Partial<IButton>) {
   }
   return (
     <button
-      className={`button button--${size || 'default'} ${
-        inverse && 'button--inverse'
-      } ${danger && 'button--danger'}`}
+      className={`button text-${size || 'default'} ${inverse && 'inverse'} ${
+        danger && 'danger'
+      }`}
       type={type}
       onClick={onClick}
       disabled={disabled}

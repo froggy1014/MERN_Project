@@ -61,12 +61,36 @@ body {
     @apply flex items-center w-full h-full no-underline p-4 text-white bg-black opacity-90
   }
 
-
   .user-item a,
   .user-item h2,
   .user-item h3 {
     @apply hover:bg-ivory active:bg-ivory hover:text-shyGreen duration-200
   }
+
+  /* Form Component */
+  .button-test {
+    @apply py-2 px-6 rounded-md bg-shyGreen-300 text-shyGreen cursor-pointer mr-4 no-underline inline-block focus:outline-none 
+  }
+
+  .button-test:hover,
+  .button-test:active {
+    @apply bg-shyGreen-400 border-shyGreen-400 text-white
+  }
+
+  .button-test:disabled,
+  .button-test:hover:disabled,
+  .button-test:active:disabled {
+    @apply bg-disabled text-body border-disabled cursor-not-allowed
+  }
+
+  .inverse {
+    @apply bg-white opacity-100 border-shyGreen-500 border-solid border-[1px] text-shyGreen hover:text-white hover:bg-shyGreen-400 active:text-shyGreen active:bg-white
+  }
+
+  .danger {
+    @apply bg-shyGreen-400 border-shyGreen-400 hover:bg-shyGreen-300 hover:border-shyGreen-200
+  }
+
 }
 
 

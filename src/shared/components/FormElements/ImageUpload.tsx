@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, ChangeEvent } from 'react';
 
 import Button from './Button';
-import './ImageUpload.css';
 
 function ImageUpload({
   id,
@@ -61,10 +60,16 @@ function ImageUpload({
         accept=".jpg,.png,.jpeg"
         onChange={pickedHandler}
       />
-      <div className={`image-upload ${center && 'center'}`}>
-        <div className="image-upload__preview">
+      <div
+        className={`${center && 'flex justify-center items-center flex-col'}`}
+      >
+        <div className="w-56 h-56 border-solid border-[1px] border-body flex justify-center items-center text-center mb-4">
           {previewUrl && (
-            <img src={previewUrl.result as string} alt="Preview" />
+            <img
+              className="w-full h-full object-cover"
+              src={previewUrl.result as string}
+              alt="Preview"
+            />
           )}
           {!previewUrl && <p>Please pick an image.</p>}
         </div>
