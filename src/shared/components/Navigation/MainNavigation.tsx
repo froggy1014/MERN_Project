@@ -19,10 +19,8 @@ function MainNavigation() {
   return (
     <>
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
-      <SideDrawer show={drawerIsOpen}>
-        <button className="h-full text-black" onClick={closeDrawerHandler}>
-          <NavLinks />
-        </button>
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
+        <NavLinks />
       </SideDrawer>
       <MainHeader>
         <div className="flex text-center">
