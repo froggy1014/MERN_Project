@@ -1,5 +1,5 @@
 import { ImageUpload, Input, Button } from 'shared/components/FormElements';
-import React, { FormEvent, useContext } from 'react';
+import { FormEvent, useContext } from 'react';
 
 import {
   VALIDATOR_MINLENGTH,

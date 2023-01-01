@@ -1,5 +1,5 @@
 import { TPlaceDetail } from 'shared/types/Place';
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 
 import Button from '../../shared/components/FormElements/Button';
 import {
