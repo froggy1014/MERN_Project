@@ -1,7 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { TMap } from 'shared/types/UI';
-
-import './Map.css';
 
 function Map(props: TMap) {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -22,7 +20,7 @@ function Map(props: TMap) {
     })();
   }, [center, zoom]);
 
-  return <div ref={mapRef} className="map" />;
+  return <div ref={mapRef} className="w-full h-64" />;
 }
 
 export default Map;

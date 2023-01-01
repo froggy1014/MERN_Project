@@ -1,9 +1,8 @@
-import React, { FormEvent } from 'react';
+import { FormEvent } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { IModal } from 'shared/types/UI';
 import Backdrop from './Backdrop';
-import './Modal.css';
 
 const ModalOverLay = (props: Omit<IModal, 'onCancel' | 'show'>) => {
   const {
@@ -22,13 +21,15 @@ const ModalOverLay = (props: Omit<IModal, 'onCancel' | 'show'>) => {
   };
 
   const content = (
-    <div className="modal">
-      <header className={`modal__header ${headerClass}`}>
-        <h2>{header}</h2>
+    <div className="modal md:left-[calc(50% - 20rem)] md:w-160">
+      <header
+        className={`w-full px-4 py-2 bg-shyGreen-200 text-black ${headerClass}`}
+      >
+        <h2 className="m-2">{header}</h2>
       </header>
       <form onSubmit={submitHandler}>
-        <div className={`modal__content ${contentClass}`}>{children}</div>
-        <footer className={`modal__footer ${footerClass}`}>{footer}</footer>
+        <div className={`px-4 py-2 ${contentClass}`}>{children}</div>
+        <footer className={`px-4 py-2 mt-4 ${footerClass}`}>{footer}</footer>
       </form>
     </div>
   );

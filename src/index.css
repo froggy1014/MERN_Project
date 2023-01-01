@@ -38,7 +38,19 @@ body {
   .nav-link button {
     @apply bg-none p-2 cursor-pointer hover:bg-ivory hover:text-black active:bg-ivory rounded-lg duration-200 focus:bg-ivory focus:text-black
   }
+  
+  /* UI Components */
+  .backdrop {
+    @apply fixed top-0 left-0 w-full h-screen bg-black opacity-75 z-10
+  }
 
+  .modal {
+    @apply z-50 fixed top-1/4 left-[10%] w-4/5 bg-white shadow-lg rounded-lg
+  }
+
+  .loading-ring {
+    @apply block w-[46px] h-[46px] rounded-full m-px border-4 border-solid border-x-shyGreen-500 border-y-body animate-spin
+  }
 }
 
 

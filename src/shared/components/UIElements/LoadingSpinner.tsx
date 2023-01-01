@@ -1,9 +1,12 @@
-import './LoadingSpinner.css';
-
 function LoadingSpinner({ asOverlay }: { asOverlay: boolean }) {
   return (
-    <div className={`${asOverlay && 'loading-spinner__overlay'}`}>
-      <div className="lds-dual-ring" />
+    <div
+      className={`${
+        asOverlay &&
+        'h-full w-full absolute top-0 left-0 flex justify-center items-center'
+      }`}
+    >
+      <div className="loading-ring" />
     </div>
   );
 }

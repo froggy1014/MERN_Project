@@ -27,6 +27,7 @@ module.exports = {
       ivory: '#fbed9c',
       white: '#FFF',
       black: '#000',
+      body: '#4d4d4d',
     },
   },
   extend: {},
