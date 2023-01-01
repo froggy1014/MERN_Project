@@ -1,7 +1,6 @@
 import { IUserData } from 'shared/types/User';
 import UserItem from './UserItem';
 import { Card } from '../../shared/components/UIElements';
-import './UsersList.css';
 
 function UsersList({ users }: { users: IUserData[] }) {
   if (users.length === 0) {
@@ -15,7 +14,7 @@ function UsersList({ users }: { users: IUserData[] }) {
   }
 
   return (
-    <ul className="users-list">
+    <ul className="list-none mx-auto p-0 w-[90%] m-w-200 flex justify-center flex-nowrap">
       {users.map((user: IUserData) => (
         <UserItem
           key={user.id}

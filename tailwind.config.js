@@ -12,6 +12,7 @@ module.exports = {
       white: '#FFF',
       black: '#000',
       ivory: '#fbed9c',
+      shyGreen: '#1ec178',
     },
     colors: {
       shyGreen: {

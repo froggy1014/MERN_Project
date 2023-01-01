@@ -51,9 +51,23 @@ body {
   .loading-ring {
     @apply block w-[46px] h-[46px] rounded-full m-px border-4 border-solid border-x-shyGreen-500 border-y-body animate-spin
   }
+
+  /* User */
+  .user-item {
+    @apply m-4 min-w-[280px] bg-black opacity-90
+  }
+
+  .user-item a { 
+    @apply flex items-center w-full h-full no-underline p-4 text-white bg-black opacity-90
+  }
+
+
+  .user-item a,
+  .user-item h2,
+  .user-item h3 {
+    @apply hover:bg-ivory active:bg-ivory hover:text-shyGreen duration-200
+  }
 }
-
-
 
 
 .slide-in-left-enter {

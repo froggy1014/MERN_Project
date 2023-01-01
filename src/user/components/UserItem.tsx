@@ -1,22 +1,24 @@
 import { IUserData } from 'shared/types/User';
 import { Link } from 'react-router-dom';
 import { Avatar, Card } from '../../shared/components/UIElements';
-import './UserItem.css';
 
 function UserItem({ id, name, image, places }: IUserData) {
   return (
     <li className="user-item">
-      <Card className="user-item__content">
-        <Link to={`/${id}/places`}>
-          <div className="user-item__image">
+      <Card className="!p-0">
+        <Link
+          className="flex items-center w-full h-full no-underline p-4 text-white bg-black"
+          to={`/${id}/places`}
+        >
+          <div className="w-16 h-16 mr-4">
             <Avatar
               image={process.env.REACT_APP_ASSET_URL + image}
               alt={name}
             />
           </div>
-          <div className="user-item__info">
-            <h2>{name}</h2>
-            <h3>
+          <div>
+            <h2 className="mb-2 text-lg text-6 mt-2">{name}</h2>
+            <h3 className="mb-2 text-md m-0">
               {places.length} {places.length === 1 ? 'Place' : 'Places'}
             </h3>
           </div>
