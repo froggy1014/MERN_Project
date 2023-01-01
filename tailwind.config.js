@@ -8,6 +8,11 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
+    textColor: {
+      white: '#FFF',
+      black: '#000',
+      ivory: '#fbed9c',
+    },
     colors: {
       shyGreen: {
         100: '#e3fbf0',
@@ -19,12 +24,11 @@ module.exports = {
         700: '#0d5333',
         800: '#041c11',
       },
+      ivory: '#fbed9c',
+      white: '#FFF',
+      black: '#000',
     },
   },
-  extend: {
-    fontFamily: {
-      standard: ['"Kalam"'],
-    },
-  },
+  extend: {},
   plugins: [],
 };

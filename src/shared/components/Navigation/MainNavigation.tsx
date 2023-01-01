@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { MainHeader, NavLinks, SideDrawer } from './index';
 import { Backdrop } from '../UIElements';
-import './MainNavigation.css';
 
 function MainNavigation() {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -20,26 +20,22 @@ function MainNavigation() {
     <>
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       <SideDrawer show={drawerIsOpen}>
-        <button
-          className="main-navigation__drawer-nav"
-          onClick={closeDrawerHandler}
-        >
+        <button className="h-full text-black" onClick={closeDrawerHandler}>
           <NavLinks />
         </button>
       </SideDrawer>
       <MainHeader>
-        <button
-          className="main-navigation__menu-btn"
-          onClick={openDrawerHandler}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-        <h1 className="main-navigation__title">
-          <Link to="/">YourPlaces</Link>
-        </h1>
-        <nav className="main-navigation__header-nav">
+        <div className="flex text-center">
+          <button onClick={openDrawerHandler}>
+            <GiHamburgerMenu className="mx-4 m-auto text-5xl text-white hover:scale-125  duration-200 " />
+          </button>
+          <h1 className="flex align-center text-2xl md:text-3xl">
+            <Link className="no-underline text-white m-auto" to="/">
+              YourPlaces
+            </Link>
+          </h1>
+        </div>
+        <nav className="hidden md:block">
           <NavLinks />
         </nav>
       </MainHeader>

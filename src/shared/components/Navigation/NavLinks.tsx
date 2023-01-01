@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { AppContext } from '../../context/AppContext';
-import './NavLinks.css';
+// import './NavLinks.css';
 
 function NavLinks() {
   const ctx = useContext(AppContext);
 
   return (
-    <ul className="nav-links">
+    <ul className="nav-link">
       <li>
         <NavLink to="/">ALL USERS</NavLink>
       </li>
@@ -29,7 +29,9 @@ function NavLinks() {
       )}
       {ctx.isLoggedIn && (
         <li>
-          <button onClick={ctx.logout}>LOGOUT</button>
+          <button className="text-white" onClick={ctx.logout}>
+            LOGOUT
+          </button>
         </li>
       )}
     </ul>

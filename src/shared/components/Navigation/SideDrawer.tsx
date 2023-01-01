@@ -2,8 +2,6 @@ import { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
-import './SideDrawer.css';
-
 const SideDrawer = ({
   show,
   onClick,
@@ -21,7 +19,10 @@ const SideDrawer = ({
       mountOnEnter
       unmountOnExit
     >
-      <button className="side-drawer" onClick={onClick}>
+      <button
+        className="fixed left-0 top-0 z-40 h-screen w-4/6 bg-shyGreen-700 shadow-lg text-black"
+        onClick={onClick}
+      >
         {children}
       </button>
     </CSSTransition>
