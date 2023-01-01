@@ -1,17 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap'); 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Open Sans', sans-serif;
-}
-
 body {
   margin: 0;
   background: #4d4d4d;
 }
+
+@layer base {
+  /* Main Header */
+
+  html {
+    @apply font-mono
+  }
+
+  .main-header { 
+    @apply w-full h-16 flex items-center fixed top-0 left-0 bg-shyGreen-400 shadow-md px-1 z-10 md:justify-between
+  }
+  
+  main {
+    @apply mt-20
+  }
+
+}
+
+
+
 
 .slide-in-left-enter {
   transform: translateX(-100%);
