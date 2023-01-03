@@ -2,7 +2,7 @@
 
 <div align="center" width="300px">
     
-<img src="#" />
+<img src="./public/images/Logo.png" />
 
 </div>
 
@@ -71,7 +71,7 @@ Place I've Been은 사용자가 방문했던 곳의 이름과 설명, 구글 맵
 
 <br>
 
-'Place I've Been' allows you to share information about places and store memories of places through the name and description, coordinates of places you visited. Back-end and front-end were used to implement basic CRUD and Authentication Verification, RESTful API.
+'Place I've Been' allows you to share and store information about places you've visited and your memories through its name, description and coordinates. Back-end and front-end were used to implement basic CRUD and Authentication Verification, RESTful API.
 
 <br>
 
@@ -90,16 +90,16 @@ Place I've Been은 사용자가 방문했던 곳의 이름과 설명, 구글 맵
 
 ### 🔁 User Flow                [-> Wiki]()
 
-### ⚠️ Trial and Error          [-> Wiki]()
-
-
-
 <br>
 
 # 🤔 What I've learnt? 
 
 <pre>
+ 코드 스프리팅을 통한 성능 개선  Code splitting for performance improvements
 
+ 타입스크립트로의 마이그레이션   Migration re-work to Typescript from Javascript
+
+ 포탈을 이용한 글로벌 모달 구현   Implement global modal by portal
 </pre>
 
 <br>
