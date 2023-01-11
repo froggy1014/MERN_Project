@@ -11,10 +11,7 @@ function UserItem({ id, name, image, places }: IUserData) {
           to={`/${id}/places`}
         >
           <div className="w-16 h-16 mr-4">
-            <Avatar
-              image={process.env.REACT_APP_ASSET_URL + image}
-              alt={name}
-            />
+            <Avatar image={process.env.REACT_APP_AWS_URL + image} alt={name} />
           </div>
           <div>
             <h2 className="mb-2 text-lg text-6 mt-2">{name}</h2>

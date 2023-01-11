@@ -63,7 +63,7 @@ function PlaceItem(props: TPlaceDetail) {
           <div className="w-full h-50 mr-6 md:h-80">
             <img
               className="w-full h-full object-cover"
-              src={process.env.REACT_APP_ASSET_URL + image}
+              src={process.env.REACT_APP_AWS_URL + image}
               alt={title}
             />
           </div>
