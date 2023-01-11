@@ -1,4 +1,4 @@
-# 📍 Places I've Been - MERN Stack Project
+# 📍 [Places I've Been](https://places-i-ve-been-fsssycziz-froggy1014.vercel.app)
 
 <div align="center" width="300px">
     
@@ -44,6 +44,9 @@
     <a target="_blank" rel="noopener noreferrer nofollow">
         <img src="https://img.shields.io/badge/dotenv-^16.0.3-ECD53F?style=for-the-badge&logo=.ENV&logoColor=ECD53F"/>
     </a>
+    <a target="_blank" rel="noopener noreferrer nofollow">
+        <img src="https://img.shields.io/badge/AWS S3-^16.0.3-CA7d46?style=for-the-badge&logo=Amazon S3&logoColor=CA7d46"/>
+    </a>
 </p>
 
 </div>
@@ -86,7 +89,7 @@ Place I've Been은 사용자가 방문했던 곳의 이름과 설명, 구글 맵
 
 # ✍️ Project Summary
 
-### 📁 Folder Structure         [-> Wiki]()
+### 📁 Folder Structure         [-> Wiki](https://github.com/froggy1014/Places-I-ve-Been/wiki/%F0%9F%93%81-Folder-Structure)
 
 ### 🔁 User Flow                [-> Wiki]()
 
@@ -95,11 +98,14 @@ Place I've Been은 사용자가 방문했던 곳의 이름과 설명, 구글 맵
 # 🤔 What I've learnt? 
 
 <pre>
- 코드 스프리팅을 통한 성능 개선  Code splitting for performance improvements
-
- 타입스크립트로의 마이그레이션   Migration re-work to Typescript from Javascript
-
- 포탈을 이용한 글로벌 모달 구현   Implement global modal by portal
+ 코드 스프리팅을 통한 성능 개선       Code splitting for performance improvements
+ 타입스크립트로의 마이그레이션         Migration re-work to Typescript from Javascript
+ 포탈을 이용한 글로벌 모달 구현       Implement global modal by portal
+ AWS S3를 이용한 이미지 보관        Store images into AWS S3 Bucket
+ RESTful API 구축 및 CRUD 구현    Implement CRUD feature and Build RESTFul API from scratch
+ 리액트 쿼리를 활용한 상태 관리        Manage State by React-Query
+ CORS 에러에 대한 핸들링            Handling CORS error
+ MongoDB를 활용한 DB 구축          Build DataBase by MongoDB
 </pre>
 
 <br>
@@ -114,7 +120,7 @@ Place I've Been은 사용자가 방문했던 곳의 이름과 설명, 구글 맵
 // FE
 REACT_APP_GOOGLE_API_KEY=[Google Map API Key]
 REACT_APP_BASE_URL=https://mern-be.onrender.com/api/
-REACT_APP_ASSET_URL=https://mern-be.onrender.com/
+REACT_APP_ASSET_URL=https://place-ive-been.s3.ap-northeast-2.amazonaws.com/
 
 // BE
 DB_USER=[MongoDB Admin ID]
@@ -122,6 +128,9 @@ DB_PASSWORD=[MongoDB Admin PW]
 DB_NAME=[MongoDB collection Name]
 GOOGLE_API_KEY=[Your Google Map API Key]
 JWT_SECRET_KEY=[ask me]
+S3_ACCESS_KEY_ID=[AWS S3 IAM ACCESS KEY]
+S3_SECRET_ACCESS_KEY=[AWS S3 IAM SECRET ACCESS KEY]
+S3_REGION=ap-northeast-2
 ```
 
 test command 
