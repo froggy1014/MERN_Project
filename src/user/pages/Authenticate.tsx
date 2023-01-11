@@ -96,7 +96,7 @@ function Authenticate() {
             id="name"
             type="text"
             label="Your Name"
-            validators={[VALIDATOR_REQUIRE()]}
+            validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
             errorText="Please enter a name."
             onInput={inputHandler}
           />
