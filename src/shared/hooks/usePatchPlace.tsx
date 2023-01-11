@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { patchPlace } from '../../api/placeApi';
 
 import { AppContext } from '../context/AppContext';
-import { QueryKey } from '../constants';
+import { QueryKey, ERROR } from '../constants';
 
 const usePatchPlace = () => {
   const cxt = useContext(AppContext);
@@ -21,9 +21,7 @@ const usePatchPlace = () => {
     },
     onError(err) {
       if (err instanceof Error) {
-        cxt.modalToggle(
-          err.message || 'Something went wrong, please try again.',
-        );
+        cxt.modalToggle(err.message || ERROR.DEFAULT);
       }
     },
   });

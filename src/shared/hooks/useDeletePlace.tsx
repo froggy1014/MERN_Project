@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { delPlace } from '../../api/placeApi';
-import { QueryKey } from '../constants';
+import { QueryKey, ERROR } from '../constants';
 
 const useDeletePlace = () => {
   const cxt = useContext(AppContext);
@@ -20,10 +20,7 @@ const useDeletePlace = () => {
       navigate(`/${cxt.userId}/places`);
     },
     onError(err) {
-      if (err instanceof Error)
-        cxt.modalToggle(
-          err.message || 'Something went wrong, please try again.',
-        );
+      if (err instanceof Error) cxt.modalToggle(err.message || ERROR.DEFAULT);
     },
   });
 };

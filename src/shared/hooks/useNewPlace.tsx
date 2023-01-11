@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { postNewPlace } from '../../api/placeApi';
-import { QueryKey } from '../constants';
+import { QueryKey, ERROR } from '../constants';
 
 const useNewPlace = () => {
   const cxt = useContext(AppContext);
@@ -21,9 +21,7 @@ const useNewPlace = () => {
     },
     onError(err) {
       if (err instanceof Error) {
-        cxt.modalToggle(
-          err.message || 'Somethizng went wrong, please try again.',
-        );
+        cxt.modalToggle(err.message || ERROR.DEFAULT);
       }
     },
   });

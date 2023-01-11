@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 import { postLogin } from '../../api/userApi';
-import { QueryKey } from '../constants';
+import { QueryKey, ERROR } from '../constants';
 
 const useLogin = () => {
   const cxt = useContext(AppContext);
@@ -19,9 +19,7 @@ const useLogin = () => {
     },
     onError(err) {
       if (err instanceof Error) {
-        cxt.modalToggle(
-          err.message || 'Something went wrong, please try again.',
-        );
+        cxt.modalToggle(err.message || ERROR.DEFAULT);
       }
     },
   });

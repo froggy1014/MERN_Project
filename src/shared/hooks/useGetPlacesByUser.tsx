@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { getPlacesByUser } from '../../api/placeApi';
-import { QueryKey } from '../constants';
+import { QueryKey, ERROR } from '../constants';
 
 const useGetPlacesByUser = (uid: string | undefined) => {
   const cxt = useContext(AppContext);
@@ -11,18 +11,12 @@ const useGetPlacesByUser = (uid: string | undefined) => {
   return useQuery([QueryKey.PLACES, uid], () => getPlacesByUser(uid), {
     onSuccess(data) {
       if (data.response !== undefined && data.response.status !== 200) {
-        cxt.modalToggle(
-          data.response.data.message ||
-            'Something went wrong, please try again.',
-        );
+        cxt.modalToggle(data.response.data.message || ERROR.DEFAULT);
         navigate('/');
       }
     },
     onError(err) {
-      if (err instanceof Error)
-        cxt.modalToggle(
-          err.message || 'Something went wrong, please try again.',
-        );
+      if (err instanceof Error) cxt.modalToggle(err.message || ERROR.DEFAULT);
     },
   });
 };
